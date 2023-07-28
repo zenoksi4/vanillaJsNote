@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/5a0cf9540d.js" crossorigin="anonymous"></script>
+    <title>NoteApp</title>
 </head>
 <body>
     <div class="container">
@@ -20,30 +21,8 @@
                 <th>ICONS</th>
             </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Name</td>
-                    <td>Created</td>
-                    <td>Category</td>
-                    <td>Content</td>
-                    <td>Dates</td>
-                    <td>ICONS</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Created</td>
-                    <td>Category</td>
-                    <td>Content</td>
-                    <td>Dates</td>
-                    <td>ICONS</td>
-                </tr>                <tr>
-                    <td>Name</td>
-                    <td>Created</td>
-                    <td>Category</td>
-                    <td>Content</td>
-                    <td>Dates</td>
-                    <td>ICONS</td>
-                </tr>
+            <tbody class="body-table active-table">
+
             </tbody>
         </table>
         <div class="add-note">
@@ -60,21 +39,21 @@
                     <input type="text" class="title-input"></br>
 
                     <label for="">Category</label></br>
-                    <select type="radio" value="into" class="title-input">
+                    <select type="radio" value="into" class="category-input">
                         <option value="category1">category1</option>
                         <option value="category2">category2</option>
                     </select></br>
 
-                    <label for="">Content</label></br>
-                    <input type="text" class="title-input"></br>
+                    <label for="">Note</label></br>
+                    <input type="text" class="note-input"></br>
 
                     <label for="">Date</label></br>
-                    <input type="date" class="title-input"></br>
+                    <input type="date" class="date-input"></br>
 
-                    <input type="submit" class="shadow_btn"></br>
+                    <input class="submit" type="submit"></br>
 
-                    <div class="cansel">
-                        <a href="#close" class="cansel-btn btn shadow_btn">Cansel</a>
+                    <div class="cancel">
+                        <a href="#close" class="cancel-btn btn shadow_btn">Cancel</a>
                     </div>
 
 
@@ -83,6 +62,27 @@
             </div>
 
         </div>
+
+
+    
+    <h1>Archive</h1>
+        <table class="note-table">
+            <thead class="table-head">
+            <tr>
+                <th>Name</th>
+                <th>Created</th>
+                <th>Category</th>
+                <th>Content</th>
+                <th>Dates</th>
+                <th>ICONS</th>
+            </tr>
+            </thead>
+            <tbody class="body-table archive-table">
+
+            </tbody>
+        </table>
     </div>
+
+    <script type="module" src="app.js"></script>
 </body>
 </html>

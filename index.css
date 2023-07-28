@@ -32,6 +32,9 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
+a {
+    text-decoration: none;
+}
 
 ul[class],
 ol[class] {
@@ -176,7 +179,7 @@ h1{
 .modal-content{
   width: 400px;
   position: relative;
-  margin: 10% auto;
+  margin: auto;
   border: 1px solid rgba(0, 0, 0, 0.192);
   padding: 2rem;
   border-radius: 5px;
@@ -184,3 +187,58 @@ h1{
   backdrop-filter: blur(10px);
   color: #ffffff;
 }
+
+.cancel, .submit{
+    text-align: center;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 1rem;
+  }
+  
+  .cancel a {
+    padding: 1rem;
+    border-radius: 25px;
+  }
+  
+  .cancel a:hover, .submit:hover {
+    color: #ffffff;
+  }
+  
+  .icons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .note-title{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: row-reverse;
+  }
+  
+  .icon{
+    padding: 10px;
+  }
+  
+  .icon-title{
+    padding: 10px;
+    margin: 10px;
+    color:#ffffff;
+    background-color: #ffffff24;
+    border-radius: 100px;
+  }
+  
+  i{
+    cursor: pointer;
+  
+  }
+  td .icon-title{
+    padding: 10px;
+    margin: 10px;
+    color:#ffffff;
+    background-color: #ffffff24;
+    border-radius: 100px;
+  }
