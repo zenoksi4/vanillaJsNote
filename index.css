@@ -263,3 +263,20 @@ h1{
     flex-direction: row;
     justify-content: space-between;
   }
+
+  .icon-title i{
+    cursor: default;
+  }
+  
+  .is-invalid{
+    background-color: #c00000;
+    border: 5px solid #c00000;
+    border-radius: 15px;
+  
+  }
+
+  form select{
+    border-bottom: 1px solid #ffffff;
+    border-radius: 20px;
+    background-color: #00000000;
+  }

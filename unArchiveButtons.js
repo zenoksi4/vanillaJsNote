@@ -4,19 +4,21 @@ import { archiveList } from './archiveButtons.js';
 
 export function getUnArchiveButtons() {
     let noteDeleteButtons = Array.from(document.querySelectorAll('.unarchive-item'));
-    console.log(archiveList)
+
     noteDeleteButtons.forEach(button => {
 
-        let noteTitle = button.parentNode.parentNode.firstChild.innerText;
+        let id = button.parentNode.parentNode.firstChild.innerText;
+        let title = button.parentNode.parentNode.firstChild.nextSibling.innerText;
+
         button.addEventListener('click', (e) => {
-            unArchiveNote(noteTitle);
+            unArchiveNote(id,title);
         })
     })
 }   
 
-function unArchiveNote(noteTitle){
+function unArchiveNote(id,title){
     for(let i = 0; i < archiveList.length; i++){
-        if(archiveList[i].title == noteTitle) {
+        if((i == id - 1) && (archiveList[i].title == title)) {
             noteList.push(archiveList[i])
             archiveList.splice(i, 1);
         }

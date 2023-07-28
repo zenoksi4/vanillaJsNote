@@ -1,22 +1,20 @@
 import { addNote, appendNotes } from "./addNote.js";
 
-let modal = document.querySelector(".modal");
 let noteForm = document.querySelector(".note-form");
-let noteFormEdit = document.querySelector('.note-form-edit');
-let cancel = document.querySelector('.cancel-btn');
+  let cancel = document.querySelector('.cancel-btn');
 
 export let noteList = [
   {
     title: "note1",
     category: "Task",
-    note: "note text1 3/5/2021",
+    note: "note text1 3/5/2023 1/2/2023",
 
   },
 
   {
     title: "note2",
     category: "Random Thought",
-    note: "note text2",
+    note: "note text2 2/9/2023",
 
   },
 

@@ -7,16 +7,18 @@ export function getArchiveButtons() {
 
     noteDeleteButtons.forEach(button => {
 
-        let noteTitle = button.parentNode.parentNode.firstChild.innerText;
+        let id = button.parentNode.parentNode.firstChild.innerText;
+        let title = button.parentNode.parentNode.firstChild.nextSibling.innerText;
+
         button.addEventListener('click', (e) => {
-            archiveNote(noteTitle);
-        })
+            archiveNote(id, title);
+        }, {once: true})
     })
 }   
 
-function archiveNote(noteTitle){
+function archiveNote(id, title){
     for(let i = 0; i < noteList.length; i++){
-        if(noteList[i].title == noteTitle) {
+        if((i == id - 1) && (noteList[i].title == title)) {
             archiveList.push(noteList[i])
             noteList.splice(i, 1);
         }

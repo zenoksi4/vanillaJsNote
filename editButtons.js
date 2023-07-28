@@ -1,5 +1,6 @@
 import {appendNotes} from './addNote.js';
 import {noteList} from './app.js';
+import { ValidateEdit} from './validate.js';
 
 let noteFormEdit = document.querySelector('.note-form-edit');
 let cancel = document.querySelector('.cancel-btn');
@@ -9,18 +10,18 @@ export function getEditButtons() {
 
     noteDeleteButtons.forEach(button => {
 
-        let noteTitle = button.parentNode.parentNode.firstChild.innerText;
-
-        let notecategory = button.parentNode.parentNode.firstChild.nextSibling.nextSibling.innerText;
+        let noteId = button.parentNode.parentNode.firstChild.innerText; 
+        let noteTitle = button.parentNode.parentNode.firstChild.nextSibling.innerText;
+        let notecategory = button.parentNode.previousSibling.previousSibling.previousSibling.innerText;
         let noteNote = button.parentNode.previousSibling.previousSibling.innerText;
 
         button.addEventListener('click', () => {
-            editValueForm(noteTitle, notecategory, noteNote);
-        })
+            editValueForm(noteTitle, notecategory, noteNote, noteId, button);
+        }, {once: true});
     })
 }   
 
-function editValueForm(noteTitle, notecategory, noteNote){
+function editValueForm(noteTitle, notecategory, noteNote, noteId){
 
     let title = document.querySelector('.title-input-edit');
     title.value = noteTitle;
@@ -32,16 +33,15 @@ function editValueForm(noteTitle, notecategory, noteNote){
     note.value = noteNote;
 
     noteFormEdit.addEventListener('submit', (e) => {
+        e.preventDefault();
+        submitFormEdit(noteId);
 
-        submitFormEdit(e)
-
-    });
+    }, {once: true});
 
 
 }
-function submitFormEdit(e) {
+export function submitFormEdit(noteId) {
     
-    e.preventDefault();
     let editNoteList = {};
 
     let title = document.querySelector('.title-input-edit');
@@ -49,28 +49,32 @@ function submitFormEdit(e) {
     let note = document.querySelector('.note-input-edit');
 
 
-    if(title.value == '' || note.value == ''){
-        return alert('fields are empty')
-    }else{
+    try {
+        if(ValidateEdit()){
+            throw new Error('fields cannot be empty')
+        }else{
 
-        editNoteList.title = title.value;
-        editNoteList.category = category.value;
-        editNoteList.note = note.value;
+            editNoteList.title = title.value;
+            editNoteList.category = category.value;
+            editNoteList.note = note.value;
 
-
+        }
+    } catch(err) {
+        return
     }
-    editNote(title.value, noteList, editNoteList);
+
+    editNote(noteId, noteList, editNoteList);
 
     cancel.click();
 }
 
-function editNote(title, noteList, editNoteList){
+function editNote(noteId, noteList, editNoteList){
 
     for(let i = 0; i < noteList.length; i++){
-        if(noteList[i].title == title) {
+        if(i == noteId - 1) {
             noteList.splice(i, 1, editNoteList);
         }
     }
-    console.log(noteList)
+
     appendNotes(noteList);
 }

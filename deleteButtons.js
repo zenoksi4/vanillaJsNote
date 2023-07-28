@@ -6,7 +6,7 @@ export function getDeleteButtons(noteList, isArchive) {
 
     noteDeleteButtons.forEach(button => {
 
-        let noteTitle = button.parentNode.parentNode.firstChild.innerText;
+        let noteTitle = button.parentNode.parentNode.firstChild.nextSibling.innerText;
         button.addEventListener('click', (e) => {
             deleteNote(noteTitle, noteList, isArchive);
         })

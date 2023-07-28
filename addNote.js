@@ -4,6 +4,7 @@ import { getArchiveButtons } from "./archiveButtons.js";
 import { getEditButtons } from "./editButtons.js";
 import { countActive, countArchive } from "./countNotes.js";
 import { getUnArchiveButtons } from './unArchiveButtons.js';
+import { ValidateSubmit } from './validate.js';
 
 let cancel = document.querySelector(".cancel-btn");
 let bodyActiveTable = document.querySelector(".active-table");
@@ -17,15 +18,19 @@ export function addNote(e, noteList) {
   let title = document.querySelector(".title-input");
   let category = document.querySelector(".category-input");
   let note = document.querySelector(".note-input");
-  let date = document.querySelector(".date-input");
 
-  if (title.value == "" || note.value == "") {
-    return alert("Будь ласка введіть щось у поля");
-  } else {
-    newNote.title = title.value;
-    newNote.category = category.value;
-    newNote.note = note.value;
-    date.value ? (newNote.date = new Date(date.value)) : (newNote.date = "");
+
+  try {
+    if(ValidateSubmit()){
+        throw new Error('fields cannot be empty')
+    }else{
+        newNote.title = title.value;
+        newNote.category = category.value;
+        newNote.note = note.value;
+
+    }
+  } catch(err) {
+      return;
   }
 
   title.value = "";
@@ -49,24 +54,30 @@ export function appendNotes(noteList, isArchive = false) {
     });
   }
 
-  noteList.map((note) => {
+  noteList.map((note, index) => {
     let tr = document.createElement("tr");
     !isArchive
       ? (tr.classList = "noteItem")
       : (tr.classList = "noteItem-archive");
 
+    let tdId = document.createElement('td');
+    tdId.classList = 'note-id';
+    tdId.innerText = index + 1;
+
     let tdTitle = document.createElement("td");
     tdTitle.classList = "note-title";
+
     let titleIcon = document.createElement("div");
     titleIcon.classList = "icon-title";
     titleIcon.innerHTML = addIconTitle(note.category);
+
     tdTitle.innerText = note.title;
     tdTitle.appendChild(titleIcon);
 
     let tdcreated = document.createElement("td");
     tdcreated.innerText = new Date().toLocaleDateString("uk");
 
-    console.log(tdcreated.fulldate);
+
     let tdcategory = document.createElement("td");
     tdcategory.innerText = note.category;
 
@@ -108,6 +119,7 @@ export function appendNotes(noteList, isArchive = false) {
 
     icons.appendChild(tdDelete);
 
+    tr.appendChild(tdId);
     tr.appendChild(tdTitle);
     tr.appendChild(tdcreated);
     tr.appendChild(tdcategory);
