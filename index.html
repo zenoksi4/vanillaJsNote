@@ -4,9 +4,156 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/5a0cf9540d.js" crossorigin="anonymous"></script>
+    <title>NoteApp</title>
 </head>
 <body>
+    <div class="container">
+        <table class="note-table">
+            <thead class="table-head">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Created</th>
+                <th>Category</th>
+                <th>Content</th>
+                <th>Dates</th>
+                <th>ICONS</th>
+            </tr>
+            </thead>
+            <tbody class="body-table active-table">
 
+            </tbody>
+        </table>
+        <div class="add-note">
+            <a href="#myModal" class="btn shadow_btn">add tasks</a>  
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <h1 class="modal-header">
+                    Add Note
+                </h1>
+                <span class="validate"></span>
+                <form class="note-form" action="">
+
+                    <label for="">Title</label></br>
+                    <input type="text" class="title-input"></br>
+
+                    <label for="">Category</label></br>
+                    <select type="radio" value="into" class="category-input">
+                        <option value="Task">Task</option>
+                        <option value="Random Thought">Random Thought</option>
+                        <option value="Idea">Idea</option>
+                    </select></br>
+
+                    <label for="">Note</label></br>
+                    <input type="text" class="note-input"></br>
+
+                    <input class="submit shadow_btn" type="submit"></br>
+
+                    <div class="cancel">
+                        <a href="#close" class="cancel-btn shadow_btn">Cancel</a>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+        <div id="myModalEdit" class="modal">
+            <div class="modal-content">
+                <h1 class="modal-header">
+                    Edit Note
+                </h1>
+                <span class="validate-edit"></span>
+                <form class="note-form-edit" action="">
+
+                    <label for="">Title</label></br>
+                    <input type="text" class="title-input-edit"></br>
+
+                    <label for="">Category</label></br>
+                    <select type="radio" value="into" class="category-input-edit">
+                        <option value="Task">Task</option>
+                        <option value="Random Thought">Random Thought</option>
+                        <option value="Idea">Idea</option>
+                    </select></br>
+
+                    <label for="">Note</label></br>
+                    <input type="text" class="note-input-edit"></br>
+
+                    <input class="submit shadow_btn" type="submit"></br>
+
+                    <div class="cancel" >
+                        <a href="#close" class="cancel-btn shadow_btn">Cancel</a>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+
+    
+    <h1>Archive</h1>
+        <table class="note-table">
+            <thead class="table-head">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Created</th>
+                <th>Category</th>
+                <th>Content</th>
+                <th>Dates</th>
+                <th>ICONS</th>
+            </tr>
+            </thead>
+            <tbody class="body-table archive-table">
+
+            </tbody>
+        </table>
+
+        <h1>Active category</h1>
+        <table class="note-table">
+            <thead class="table-head">
+            <tr>
+                <th>Note Category</th>
+                <th>Active</th>
+                <th>Archived</th>
+            </tr>
+            </thead>
+            <tbody class="body-table active-table">
+                <tr>
+                    <td class="category-count note-title">
+                        <div class="icon-title"><i class="fa-solid fa-shop"></i></div>
+                        Task
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="category-count note-title">
+                        <div class="icon-title"><i class="fa-regular fa-lightbulb"></i></div>
+                        Random Thought
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="category-count note-title">
+                        <div class="icon-title"><i class="fa-solid fa-head-side-virus"></i></div>
+                        Idea
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
 </body>
 </html>
