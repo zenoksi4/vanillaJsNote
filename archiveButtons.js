@@ -1,7 +1,7 @@
 import {noteList} from './app.js';
 import {appendNotes} from './addNote.js';
 
-export let archiveList = []
+export let archiveList = [];
 export function getArchiveButtons() {
     let noteDeleteButtons = Array.from(document.querySelectorAll('.archive-item'));
 

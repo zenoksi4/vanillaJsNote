@@ -3,6 +3,7 @@ import { noteList } from "./app.js";
 import { getArchiveButtons } from "./archiveButtons.js";
 import { getEditButtons } from "./editButtons.js";
 import { countActive, countArchive } from "./countNotes.js";
+import { getUnArchiveButtons } from './unArchiveButtons.js';
 
 let cancel = document.querySelector(".cancel-btn");
 let bodyActiveTable = document.querySelector(".active-table");
@@ -89,7 +90,7 @@ export function appendNotes(noteList, isArchive = false) {
     if (!isArchive) {
       let tdArchive = document.createElement("div");
       tdArchive.classList = "icon archive-item";
-      tdArchive.innerHTML = '<i class="fa-solid fa-box-archive"></i>';
+      tdArchive.innerHTML = '<i class="fa-solid fa-folder-plus"></i>';
 
       let tdEdit = document.createElement("a");
       tdEdit.href = "#myModalEdit";
@@ -98,6 +99,11 @@ export function appendNotes(noteList, isArchive = false) {
 
       icons.appendChild(tdEdit);
       icons.appendChild(tdArchive);
+    }else{
+      let unArchive = document.createElement('div');
+      unArchive.classList = 'icon unarchive-item';
+      unArchive.innerHTML = '<i class="fa-solid fa-folder-minus"></i>';
+      icons.appendChild(unArchive);
     }
 
     icons.appendChild(tdDelete);
@@ -115,6 +121,7 @@ export function appendNotes(noteList, isArchive = false) {
 
     getDeleteButtons(noteList, isArchive);
     getArchiveButtons();
+    getUnArchiveButtons();
     getEditButtons();
 
     countActive();

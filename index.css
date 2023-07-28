@@ -261,4 +261,5 @@ h1{
   
   .category-count{
     flex-direction: row;
+    justify-content: space-between;
   }
