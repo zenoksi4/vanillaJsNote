@@ -40,8 +40,9 @@
 
                     <label for="">Category</label></br>
                     <select type="radio" value="into" class="category-input">
-                        <option value="category1">category1</option>
-                        <option value="category2">category2</option>
+                        <option value="Task">Task</option>
+                        <option value="Random Thought">Random Thought</option>
+                        <option value="Idea">Idea</option>
                     </select></br>
 
                     <label for="">Note</label></br>
@@ -60,7 +61,38 @@
                 </form>
 
             </div>
+        </div>
 
+        <div id="myModalEdit" class="modal">
+            <div class="modal-content">
+                <h1 class="modal-header">
+                    Edit Note
+                </h1>
+                <form class="note-form-edit" action="">
+
+                    <label for="">Title</label></br>
+                    <input type="text" class="title-input-edit"></br>
+
+                    <label for="">Category</label></br>
+                    <select type="radio" value="into" class="category-input-edit">
+                        <option value="Task">Task</option>
+                        <option value="Random Thought">Random Thought</option>
+                        <option value="Idea">Idea</option>
+                    </select></br>
+
+                    <label for="">Note</label></br>
+                    <input type="text" class="note-input-edit"></br>
+
+                    <input class="submit" type="submit"></br>
+
+                    <div class="cancel" >
+                        <a href="#close" class="cancel-btn shadow_btn">Відмінити</a>
+                    </div>
+
+
+                </form>
+
+            </div>
         </div>
 
 
@@ -81,6 +113,44 @@
 
             </tbody>
         </table>
+
+        <h1>Active category</h1>
+        <table class="note-table">
+            <thead class="table-head">
+            <tr>
+                <th>Note Category</th>
+                <th>Active</th>
+                <th>Archived</th>
+            </tr>
+            </thead>
+            <tbody class="body-table active-table">
+                <tr>
+                    <td class="category-count note-title">
+                        <div class="icon-title"><i class="fa-solid fa-shop"></i></div>
+                        Task
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="category-count note-title">
+                        <div class="icon-title"><i class="fa-regular fa-lightbulb"></i></div>
+                        Random Thought
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="category-count note-title">
+                        <div class="icon-title"><i class="fa-solid fa-head-side-virus"></i></div>
+                        Idea
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 
     <script type="module" src="app.js"></script>

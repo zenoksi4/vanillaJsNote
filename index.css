@@ -221,6 +221,15 @@ h1{
   
   .icon{
     padding: 10px;
+    color: #000000
+  }
+  
+  .icon:hover{
+    color: #4a4a4a
+  }
+  
+  .icon:active{
+    color: #7e7e7e
   }
   
   .icon-title{
@@ -241,4 +250,15 @@ h1{
     color:#ffffff;
     background-color: #ffffff24;
     border-radius: 100px;
+  }
+
+  .text-ellipsis {
+    max-width: 150px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
+  
+  .category-count{
+    flex-direction: row;
   }

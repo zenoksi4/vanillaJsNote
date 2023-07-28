@@ -1,7 +1,7 @@
 import {noteList} from './app.js';
 import {appendNotes} from './addNote.js';
 
-let archiveList = []
+export let archiveList = []
 export function getArchiveButtons() {
     let noteDeleteButtons = Array.from(document.querySelectorAll('.archive-item'));
 
@@ -9,7 +9,6 @@ export function getArchiveButtons() {
 
         let noteTitle = button.parentNode.parentNode.firstChild.innerText;
         button.addEventListener('click', (e) => {
-            console.log(noteList)
             archiveNote(noteTitle);
         })
     })
@@ -24,5 +23,4 @@ function archiveNote(noteTitle){
     }
     appendNotes(archiveList, true);
     appendNotes(noteList);
-    console.log(noteList);
 }
