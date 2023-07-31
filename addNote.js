@@ -35,7 +35,7 @@ export function addNote(e, noteList) {
 
   title.value = "";
   note.value = "";
-  date.value = "";
+
 
   noteList.push(newNote);
   appendNotes(noteList);
